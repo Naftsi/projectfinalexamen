@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <div class="container">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <br>
+  <br>
+<a href="{{ path('ajouteragence') }}"><button type="button" class="btn btn-info btn-block">Ajouter une Agence</button></a> </div>
+<p>{% for message in app.flashes('notice') %}
+  <div class="alert alert-success" role="alert">
+{{ message }}
+  </div>
+{% endfor %}</p>
+<h1> Liste des Agences</h1>
+<div class="table-responsive">
+<table class="table">
+<tr>
+
+
+<th>nom</th> 
+<th>telagence</th> 
+
+<th>adresseville</th> 
+<th>Actions</th> 
+</tr>
+{% for agence in agences %}
+
+
+<tr>
+
+<td> {{agence.nom}} </td> 
+<td> {{agence.telagence}} </td> 
+<td>  {{agence.adresseville}}  </td>  
+
+  <td> <a href="{{ path('modifieragence',{'tel_agence': agence.telagence }) }}">Modifier</a><div></div><a href="{{ path('supprimeragence' ,{'tel_agence': agence.telagence }) }}">Supprimerr</a> </td>
+</tr> 
+{% endfor%}
+</table>
+</div>
+{% endblock %}

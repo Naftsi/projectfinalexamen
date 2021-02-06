@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <div class="container">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <br>
+  <br>
+<a href="{{ path('ajoutervoiture') }}"><button type="button" class="btn btn-info btn-block">Ajouter une Voiture</button></a> </div>
+<p>{% for message in app.flashes('notice') %}
+  <div class="alert alert-success" role="alert">
+{{ message }}
+  </div>
+{% endfor %}</p>
+<h1> Liste des Voitures</h1>
+
+<div class="table-responsive">
+<table class="table">
+<tr>
+<td>ID</td>
+<td>Matricule</td> 
+<td>Marque</td> 
+<td>Couleur</td> 
+<td>Description</td> 
+<td>NbrPlaces</td> 
+<td>Actions</td> 
+</tr>
+{% for voiture in voitures %}
+
+
+<tr>
+<td> {{ voiture.id }}</td> 
+<td> {{ voiture.matricule }}</td> 
+<td> {{ voiture.marque }}</td> 
+<td>  {{ voiture.couleur }} </td>  
+ <td> {{ voiture.description }}</td>  
+  <td> {{ voiture.nbrplace }} Places </td>  
+  <td> <a href="{{ path('modifiervoiture',{'mat': voiture.matricule }) }}">Modifier</a>
+  <a href="{{ path('supprimervoiture' ,{'mat': voiture.matricule }) }}">Supprimerr</a> </td>
+</tr> 
+{% endfor%}
+</table>
+</div>
+{% endblock %}

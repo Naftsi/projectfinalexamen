@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{% set int=0 %}
+<h1> le nombre de factures </h1>
+{% for facture in factures %}
+{% if facture.payee==0 %}
+{% set int= (int)+1 %}
+{% endif %}
+{% endfor %}
+{{ int }}
+{% endblock %}

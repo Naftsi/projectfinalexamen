@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <div class="container">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <br>
+  <br>
+<a href="{{ path('ajoutercontrat') }}"><button type="button" class="btn btn-info btn-block">Ajouter un contrat</button></a>
+<p>{% for message in app.flashes('notice') %}
+  <div class="alert alert-success" role="alert">
+{{ message }}
+  </div>
+{% endfor %}</p>
+<h1> Liste des Contrats</h1>
+<div class="table-responsive">
+  <table class="table">
+<tr>
+
+<td>Type</td> 
+
+<td>DateDeRetour</td> 
+<td>DateDeDepart</td> 
+<td>Actions</td> 
+</tr>
+{% for contrat in contrats %}
+
+
+<tr>
+
+<td> {{contrat.type}} </td> 
+<td> {{contrat.DateDeRetour|date('d/m/Y')}}}</td> 
+<td>  {{contrat.DateDeDepart |date('d/m/Y')}}} </td>  
+
+  <td> <a href="{{ path('modifiercontrat',{'type': contrat.type }) }}">Modifier</a>
+  <a href="{{ path('supprimercontrat' ,{'type': contrat.type }) }}">Supprimerr</a> </td>
+</tr> 
+{% endfor%}
+</table>
+</div>
+{% endblock %}

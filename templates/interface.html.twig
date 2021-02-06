@@ -1,0 +1,29 @@
+{% block body %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">interface administrateur </a>
+    </div>
+    <ul class="nav navbar-nav">
+<li><a href="{{ path('voiture') }}">Gestion de voiture</a></li>
+<li><a href="{{ path('afficheragence' ) }}">Gestion des agences</a></li>
+<li><a href="{{ path('afficheragent') }}">Gestion de agent</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+  <li><a href="#"><span class="{{path('app_register')}}"></span> {{app.user.email}}</a></li>
+  <li><a href="{{path('app_register')}}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+</ul>
+
+  </div>
+  <img width="1500" height="600" src="1581522667-img-locationvoiture-blog.jpg">
+</nav>
+
+
+
+{% endblock %}

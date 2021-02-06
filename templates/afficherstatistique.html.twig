@@ -1,0 +1,12 @@
+
+{% extends 'base.html.twig' %}{% block body %}
+
+{% set int =0 %}
+<h1> le nombre de voiture est </h1>
+{% for voiture in voitures %}
+{% if voiture.disponibilite==1 %}
+{% set int = (int)+1 %}
+{% endif %}
+{% endfor %}
+<p> {{ int }}</p>
+{% endblock%}

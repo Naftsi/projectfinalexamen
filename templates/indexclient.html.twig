@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <div class="container">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <br>
+  <br>
+<a href="{{ path('ajouterclient') }}"><button type="button" class="btn btn-info btn-block">Ajouter un client</button></a>
+<p>{% for message in app.flashes('notice') %}
+  <div class="alert alert-success" role="alert">
+{{ message }}
+  </div>
+{% endfor %}</p>
+<h1> Liste des Clients</h1>
+<div class="table-responsive">
+  <table class="table">
+<tr>
+
+
+<td>Tel</td> 
+<td>NPermis</td> 
+
+<td>ville</td> 
+<td>Actions</td> 
+</tr>
+{% for client in Clients %}
+
+
+<tr>
+
+<td> {{client.NPermis}} </td> 
+<td> {{client.tel}} </td> 
+<td>  {{client.ville}} </td>  
+
+  <td> <a href="{{ path('modifierclient',{'n_permis': client.NPermis }) }}">Modifier</a><a href="{{ path('supprimerclient' ,{'n_permis': client.NPermis }) }}">Supprimerr</a> </td>
+</tr> 
+{% endfor%}
+</table>
+</div>
+{% endblock %}

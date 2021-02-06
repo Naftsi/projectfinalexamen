@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <div class="container">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <br>
+  <br>
+  <a href="{{ path('ajouteragent') }}"><button type="button" class="btn btn-info btn-block">Ajouter un agent</button></a> </div>
+<p>{% for message in app.flashes('notice') %}
+  <div class="alert alert-success" role="alert">
+{{ message }}
+  </div>
+{% endfor %}</p>
+<h1> Liste des Agents </h1>
+<div class="table-responsive">
+<table class="table">
+<tr>
+
+<th>email</th> 
+
+<th>roles</th> 
+<th>Actions</th> 
+</tr>
+{% for user in users %}
+
+
+<tr>
+   {% if user.roles[0]=='ROLE_AGENT' %}
+ <td> {{user.Email}} </td>
+  <td> {{user.roles[0]}}</td>  
+ <td> <a href="{{ path('modifieragent',{'email': user.email }) }}">Modifier</a><div></div><a href="{{ path('supprimeragent' ,{'email': user.email }) }}">Supprimerr</a> </td>
+  {% endif %}
+  
+
+
+
+
+{% endfor%}
+</table>
+</div>
+{% endblock %}
